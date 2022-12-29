@@ -15,6 +15,10 @@ test_set <- co2_by_year[co2_by_year$Year > 1966, ]
 dim(train_set)
 dim(test_set)
 
+# View dimensions data
+View(train_set)
+View(test_set)
+
 # Now that we have our training and test sets, we can build our regression model using the lm() function
 model <- lm(CO2.emission ~ Year, data = train_set)
 

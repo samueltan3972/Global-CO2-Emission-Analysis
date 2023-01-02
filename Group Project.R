@@ -1,4 +1,6 @@
-co2_data <- read.csv("D:/UM Master/Sem 1/Principle of data science/Group Project/CO2 emission by countries.csv", 
+setwd(dirname(rstudioapi::getSourceEditorContext()$path))
+
+co2_data <- read.csv("./CO2 emission by countries - NA Filled.csv", 
                      header = TRUE, 
                      sep = ",",
                      encoding = "UTF-8")

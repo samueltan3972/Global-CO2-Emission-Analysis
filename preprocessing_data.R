@@ -1,9 +1,13 @@
+# Set to current working directory
+setwd(dirname(rstudioapi::getSourceEditorContext()$path))
+
 # First, read in the data and view it
 co2_emission <- read.csv("Actual_CO2.csv")
 View(co2_emission)
 
 # Next, group the data by year and sum the CO2.emission column
 co2_by_year <- aggregate(CO2.emission ~ Year, data = co2_emission, sum)
+View(co2_by_year)
 
 # Now split the data into our training and test sets
 train_set <- co2_by_year[co2_by_year$Year <= 1966, ]

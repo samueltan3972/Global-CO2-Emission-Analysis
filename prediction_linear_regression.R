@@ -37,7 +37,9 @@ accuracy <- 100 * sum(predictions == test_set$CO2.emission) / length(predictions
 prediction_2050 <- predict(model, data.frame(Year = 2050))
 
 # First, create a data frame with the predictions and actual values
-prediction_df <- rbind(prediction_df, data.frame(Year = 2050, Prediction = prediction_2050, Actual = NA))
+prediction_df <- data.frame()
+prediction_df <- rbind(prediction_df, data.frame(Year = test_set$Year, Prediction = predictions, Actual = test_set$CO2.emission))
+# prediction_df <- rbind(prediction_df, data.frame(Year = 2050, Prediction = prediction_2050, Actual = NA))
 
 # Next, plot the predictions and actual values using ggplot2
 plot_prediction <- ggplot(prediction_df, aes(x = Year)) +

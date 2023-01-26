@@ -1,4 +1,4 @@
-install.packages('forecast')
+# install.packages('forecast')
 library(forecast)
 
 # Set to current working directory
@@ -23,6 +23,19 @@ plot(annualized_co2_time_series)
 # ddata <- decompose(annualized_co2_time_series)
 # plot(ddata)
 
+# # Setup the model - for report purpose only
+# accumulated_linear_model = tslm(accumulated_co2_time_series ~ trend)
+# accumulated_arima_model = auto.arima(accumulated_co2_time_series)
+# accumulated_naive_model = naive(accumulated_co2_time_series, h = 30)
+# accumulated_tbats_model = tbats(accumulated_co2_time_series)
+# accumulated_holt_model = holt(accumulated_co2_time_series, h = 30)
+# 
+# annualized_linear_model = tslm(annualized_co2_time_series ~ trend)
+# annualized_arima_model = auto.arima(annualized_co2_time_series)
+# annualized_naive_model = naive(annualized_co2_time_series, h = 30)
+# annualized_tbats_model = tbats(annualized_co2_time_series)
+# annualized_holt_model = holt(annualized_co2_time_series, h = 30)
+
 # 1. Linear Regression 
 accumulated_linear_model = tslm(accumulated_co2_time_series ~ trend)
 accumulated_linear_predicted = forecast(accumulated_linear_model, h = 30)
@@ -33,12 +46,12 @@ annualized_linear_predicted = forecast(annualized_linear_model, h = 30)
 annualized_linear_predicted
 
 # 1.2 Model Evaluation
-accuracy(accumulated_linear_predicted)
+accumulated_accuracy_table = accuracy(accumulated_linear_predicted)
 summary(accumulated_linear_model)
 checkresiduals(accumulated_linear_model) 
 plot(accumulated_linear_predicted)
 
-accuracy(annualized_linear_predicted)
+annualized_accuracy_table = accuracy(annualized_linear_predicted)
 summary(annualized_linear_model)
 checkresiduals(annualized_linear_model) 
 plot(annualized_linear_predicted)
@@ -55,12 +68,12 @@ annualized_arima_predicted = forecast(annualized_arima_model, h = 30)
 annualized_arima_predicted
 
 # 2.2 Model Evaluation
-accuracy(accumulated_arima_predicted)
+accumulated_accuracy_table = rbind(accumulated_accuracy_table, accuracy(accumulated_arima_predicted))
 summary(accumulated_arima_model)
 checkresiduals(accumulated_arima_model) 
 plot(accumulated_arima_predicted)
 
-accuracy(annualized_arima_predicted)
+annualized_accuracy_table = rbind(annualized_accuracy_table, accuracy(annualized_arima_predicted))
 summary(annualized_arima_model)
 checkresiduals(annualized_arima_model) 
 plot(annualized_arima_predicted)
@@ -72,12 +85,12 @@ accumulated_naive_model = naive(accumulated_co2_time_series, h = 30)
 annualized_naive_model = naive(annualized_co2_time_series, h = 30)
 
 # 3.2 Model Evaluation
-accuracy(accumulated_naive_model)
+accumulated_accuracy_table = rbind(accumulated_accuracy_table, accuracy(accumulated_naive_model))
 summary(accumulated_naive_model)
 checkresiduals(accumulated_naive_model) 
 plot(accumulated_naive_model)
 
-accuracy(annualized_naive_model)
+annualized_accuracy_table = rbind(annualized_accuracy_table, accuracy(annualized_naive_model))
 summary(annualized_naive_model)
 checkresiduals(annualized_naive_model) 
 plot(annualized_naive_model)
@@ -85,21 +98,21 @@ plot(annualized_naive_model)
 
 
 # 4. TBATS
-accumulated_tbats_model = auto.arima(accumulated_co2_time_series)
+accumulated_tbats_model = tbats(accumulated_co2_time_series)
 accumulated_tbats_predicted = forecast(accumulated_tbats_model, h = 30)
 accumulated_tbats_predicted
 
-annualized_tbats_model = auto.arima(annualized_co2_time_series)
+annualized_tbats_model = tbats(annualized_co2_time_series)
 annualized_tbats_predicted = forecast(annualized_tbats_model, h = 30)
 annualized_tbats_predicted
 
 # 4.2 Model Evaluation
-accuracy(accumulated_tbats_predicted)
+accumulated_accuracy_table = rbind(accumulated_accuracy_table, accuracy(accumulated_tbats_predicted))
 summary(accumulated_tbats_model)
 checkresiduals(accumulated_tbats_model) 
 plot(accumulated_tbats_predicted)
 
-accuracy(annualized_tbats_predicted)
+annualized_accuracy_table = rbind(annualized_accuracy_table, accuracy(annualized_tbats_predicted))
 summary(annualized_tbats_model)
 checkresiduals(annualized_tbats_model) 
 plot(annualized_tbats_predicted)
@@ -109,13 +122,21 @@ plot(annualized_tbats_predicted)
 accumulated_holt_model = holt(accumulated_co2_time_series, h = 30)
 annualized_holt_model = holt(annualized_co2_time_series, h = 30)
 
-# 3.2 Model Evaluation
-accuracy(accumulated_holt_model)
+# 5.2 Model Evaluation
+accumulated_accuracy_table = rbind(accumulated_accuracy_table, accuracy(accumulated_holt_model))
 summary(accumulated_holt_model)
 checkresiduals(accumulated_holt_model) 
 plot(accumulated_holt_model)
 
-accuracy(annualized_holt_model)
+annualized_accuracy_table = rbind(annualized_accuracy_table, accuracy(annualized_holt_model))
 summary(annualized_holt_model)
 checkresiduals(annualized_holt_model) 
 plot(annualized_holt_model)
+
+
+# Accuracy Table
+rownames(accumulated_accuracy_table) <- c("Linear Regression", "ARIMA", "Naive", "TBATS", "Holt")
+accumulated_accuracy_table
+
+rownames(annualized_accuracy_table) <- c("Linear Regression", "ARIMA", "Naive", "TBATS", "Holt")
+annualized_accuracy_table

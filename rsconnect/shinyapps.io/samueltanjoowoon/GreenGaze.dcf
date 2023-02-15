@@ -1,0 +1,14 @@
+name: GreenGaze
+title:
+username:
+account: samueltanjoowoon
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 8317608
+bundleId: 6848462
+url: https://samueltanjoowoon.shinyapps.io/GreenGaze/
+when: 1676445543.40353
+lastSyncTime: 1676445543.40354
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: .RData|.vscode/launch.json|app2.R|CO2 emission by countries - NA Filled.csv|CO2 emission by countries.csv|GreenGaze.pbix|Group Project FINAL Qs June 2022.docx|Group Project Question.pdf|Group Project.R|Modeling.R|prediction_linear_regression.R|preprocessing_data.R|README.md

@@ -7,7 +7,7 @@ The dataset used in this project is obtained from [Kaggle](https://www.kaggle.co
 ![Cover Image](img/pexels-singkham-cover-img.jpg "Cover Image")
 <!-- <img src="img/cover.jpg" alt="Streamlit App Demo" height="400"/> -->
 
-Image Attribution: Photo by [Singkham](https://www.pexels.com/photo/clear-light-bulb-planter-on-gray-rock-1108572/)
+<small>Image Attribution: Photo by [Singkham](https://www.pexels.com/photo/clear-light-bulb-planter-on-gray-rock-1108572/)</small>
 
 ---
 

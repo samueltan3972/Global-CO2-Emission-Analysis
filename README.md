@@ -1,6 +1,6 @@
 # Global CO2 Emission Analysis
 
-This is a group assignment for WQD 7001 Principle of Data Science for the Master of Data Science at University of Malaya (UM). This project conduct an anlysis over Global CO2 Emission Analysis. The [report](report/GROUP%20ASSIGNMENT%202%20-%20Group%202.pdf) and [slides](report/GA2_Presentation_Group%202.pdf) of this project can be found at the [report folder](report/). 
+This is a group assignment for WQD 7001 Principle of Data Science for the Master of Data Science at University of Malaya (UM). This project conduct an anlysis over Global CO2 Emission. The [report](report/GROUP%20ASSIGNMENT%202%20-%20Group%202.pdf) and [slides](report/GA2_Presentation_Group%202.pdf) of this project can be found at the [report folder](report/). 
 
 The dataset used in this project is obtained from [Kaggle](https://www.kaggle.com/code/sasakitetsuya/global-cumulative-co2-emission-gap-analysis/).
 

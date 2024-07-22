@@ -5,9 +5,7 @@ This is a group assignment for WQD 7001 Principle of Data Science for the Master
 The dataset used in this project is obtained from [Kaggle](https://www.kaggle.com/code/sasakitetsuya/global-cumulative-co2-emission-gap-analysis/).
 
 ![Cover Image](img/pexels-singkham-cover-img.jpg "Cover Image")
-<!-- <img src="img/cover.jpg" alt="Streamlit App Demo" height="400"/> -->
-
-<small>Image Attribution: Photo by [Singkham](https://www.pexels.com/photo/clear-light-bulb-planter-on-gray-rock-1108572/)</small>
+<sup><sub>Image Attribution: Photo by [Singkham](https://www.pexels.com/photo/clear-light-bulb-planter-on-gray-rock-1108572/)</sub></sup>
 
 ---
 
